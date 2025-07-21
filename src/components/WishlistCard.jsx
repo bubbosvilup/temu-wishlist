@@ -6,7 +6,7 @@ function WishlistCard({ title, image, url, onRemove }) {
   return (
     <div className="wishlist-card">
       <button className="remove-btn" onClick={onRemove} type="button">
-        ❌
+        X
       </button>
       <img src={image} alt={title} />
       <p>{title}</p>
