@@ -42,18 +42,23 @@
 
 .remove-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 32px;
-  height: 32px;
-  font-size: 1rem;
-  color: #888;
-  background: transparent;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  color: #fff;
+  background-color: #e74c3c;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .remove-btn:hover {
-  color: #e74c3c;
+  background-color: #c0392b;
 }

@@ -7,13 +7,12 @@ function WishlistCard({ title, image, url, onRemove }) {
     <div className="wishlist-card">
       <button
         className="remove-btn"
-        onClick={(e) => {
-          e.stopPropagation();
-          onRemove();
-        }}
         type="button"
+        aria-label="Rimuovi"
+        onPointerDown={(e) => e.stopPropagation()}
+        onClick={onRemove}
       >
-        X
+        x
       </button>
       <img src={image} alt={title} />
       <p>{title}</p>
