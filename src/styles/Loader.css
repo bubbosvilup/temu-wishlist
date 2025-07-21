@@ -88,27 +88,3 @@
     max-width: 200px;
   }
 }
-
-/* Animazioni aggiuntive */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.wishlist-card {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.wishlist-card:nth-child(odd) {
-  animation-delay: 0.1s;
-}
-
-.wishlist-card:nth-child(even) {
-  animation-delay: 0.2s;
-}
