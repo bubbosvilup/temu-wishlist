@@ -14,11 +14,9 @@ import {
 } from "@dnd-kit/core";
 import {
   SortableContext,
-  useSortable,
   arrayMove,
-  horizontalListSortingStrategy,
+  rectSortingStrategy,
 } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
 
 function App() {
   const [url, setUrl] = useState("");
@@ -112,7 +110,7 @@ function App() {
       >
         <SortableContext
           items={items.map((i) => i.id)}
-          strategy={horizontalListSortingStrategy}
+          strategy={rectSortingStrategy}
         >
           <div className="wishlist">
             {items.map((item) => (
