@@ -5,7 +5,14 @@ import "../styles/Wishlistcard.css";
 function WishlistCard({ title, image, url, onRemove }) {
   return (
     <div className="wishlist-card">
-      <button className="remove-btn" onClick={onRemove} type="button">
+      <button
+        className="remove-btn"
+        onClick={(e) => {
+          e.stopPropagation();
+          onRemove();
+        }}
+        type="button"
+      >
         X
       </button>
       <img src={image} alt={title} />
