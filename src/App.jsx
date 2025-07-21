@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import WishlistCard from "./components/WishlistCard";
 import "./styles/App.css";
 import Loader from "./components/Loader";
+import { parseTemuLink } from "./utils/parserTemu.js";
 import {
   DndContext,
   closestCenter,
@@ -54,7 +55,7 @@ function App() {
     );
   }
 
-  const handleAdd = async () => {
+  const handleAdd = () => {
     if (!url.trim()) return;
     if (items.some((item) => item.url === url.trim())) {
       alert("Link già presente nella lista.");
@@ -62,15 +63,8 @@ function App() {
     }
     setLoading(true);
     try {
-      const res = await fetch(
-        `https://temu-backend-exdo.onrender.com/parse?url=${encodeURIComponent(
-          url
-        )}`
-      );
-      const data = await res.json();
-
-      if (!data.image || !data.title) {
-        alert("Errore nel parsing del link.");
+      const data = parseTemuLink(url.trim());
+      if (!data) {
         return;
       }
 
@@ -78,14 +72,14 @@ function App() {
         id: Date.now(),
         title: data.title,
         image: data.image,
-        url: url,
+        url: data.url,
       };
 
       setItems((prev) => [...prev, newItem]);
       setUrl("");
     } catch (err) {
-      console.error("Errore durante il fetch:", err);
-      alert("Errore durante il recupero dei dati.");
+      console.error("Errore durante il parsing:", err);
+      alert("Errore durante il parsing del link.");
     } finally {
       setLoading(false);
     }
