@@ -1,18 +1,43 @@
+@font-face {
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
+    format("woff2");
+  font-family: "Meta";
+  font-style: normal;
+  font-weight: normal;
+}
+
 .app {
-  max-width: 900px;
+  min-width: 400px;
+  min-height: 600px;
   margin: 2rem auto;
   padding: 2rem;
   background: #f9f9f9;
   border-radius: 12px;
-  border: 1px solid #ddd;
+  border: 3px solid #e9019a;
+  box-shadow: 6px 6px 10px #00000081;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 h1 {
+  font-family: "Meta", sans-serif;
+  font-size: 6rem;
+  font-variation-settings: "wght" 900, "ital" 1;
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 2px #d6f4f4;
   text-align: center;
+  text-shadow: 4px 4px 0px #07bccc, 6px 6px 0px #e601c0, 8px 8px 0px #e9019a,
+    10px 10px 0px #f40468, 18px 18px 6px #482896;
+  transition: all 0.4s ease;
   margin-bottom: 2rem;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #333;
+  cursor: pointer;
+}
+
+h1:hover {
+  font-variation-settings: "wght" 100, "ital" 0;
+  text-shadow: none;
 }
 
 .input-row {
@@ -31,7 +56,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  border-color: #4ecdc4;
+  border-color: #e9019a;
   background-color: #ffffff;
 }
 
@@ -43,12 +68,16 @@ button {
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #4ecdc4;
+  background-color: #07bccc;
+  box-shadow: 2px 2px 2px #e601c0;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
+}
+
+button:hover {
+  box-shadow: 4px 4px 4px #e601c0;
 }
 
 .wishlist {

@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect } from "react";
 import WishlistCard from "./components/WishlistCard";
+import SortableItem from "./components/SortableItem";
 import "./styles/App.css";
 import Loader from "./components/Loader";
 import { parseTemuLink } from "./utils/parserTemu.js";
@@ -33,28 +34,6 @@ function App() {
 
   const sensors = useSensors(useSensor(PointerSensor));
 
-  function SortableItem({ item, onRemove }) {
-    const { attributes, listeners, setNodeRef, transform, transition } =
-      useSortable({ id: item.id });
-
-    const style = {
-      transform: CSS.Transform.toString(transform),
-      transition,
-    };
-
-    return (
-      <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-        <WishlistCard
-          id={item.id}
-          title={item.title}
-          image={item.image}
-          url={item.url}
-          onRemove={onRemove}
-        />
-      </div>
-    );
-  }
-
   const handleAdd = () => {
     if (!url.trim()) return;
     if (items.some((item) => item.url === url.trim())) {
@@ -69,7 +48,7 @@ function App() {
       }
 
       const newItem = {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         title: data.title,
         image: data.image,
         url: data.url,

@@ -33,7 +33,6 @@
   background-color: #4ecdc4;
   border-radius: 20px;
   text-decoration: none;
-  transition: background 0.2s ease;
 }
 
 .wishlist-card-link:hover {
@@ -56,7 +55,6 @@
   color: #fff;
   background-color: #e74c3c;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 .remove-btn:hover {
